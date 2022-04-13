@@ -20,7 +20,8 @@ svm_save_model('trained.model', m)
 """
 
 # Load model
-trained_model = svm_load_model('trained.model')
+#trained_model = svm_load_model('trained.model')
+#trained_model = svm_load_model('threelabel.model')
 
 # label
 y_2 = [-1]
@@ -60,9 +61,15 @@ def run_prediction(label, vector, model, client, lastDecision):
     """
     payload = decision
     eventData = {'Door' : payload}
+    """
     if lastDecision != decision:
         client.publishEvent(typeId="RaspberryPi", deviceId=client_id, eventId=MQTT_TOPICS[n], msgFormat="json", data=eventData, qos = 2, onPublish=publish(topic = MQTT_TOPICS[n], payload = payload))
         print(f"Decision: {decision}")
+    """
+    if lastDecision == "Stable" and decision != "Stable":
+        client.publishEvent(typeId="RaspberryPi", deviceId=client_id, eventId=MQTT_TOPICS[n], msgFormat="json", data=eventData, qos = 2, onPublish=publish(topic = MQTT_TOPICS[n], payload = payload))
+    print(f"Decision: {decision}")
+    #lastDecision = decision
     time.sleep(1)
     return(decision)
 """

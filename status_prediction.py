@@ -80,6 +80,8 @@ count = 0
 
 client = prediction.connect_ibm()
 
+trained_model = prediction.svm_load_model('threelabel-2.model')
+
 #while True:
 while count < 500:
     count += 1
@@ -131,7 +133,7 @@ while count < 500:
     """
     y_2 = [-1]
     x_2 = [{1: Gx, 2: Gy, 3: Gz, 4: Ax, 5: Ay, 6: Az}]
-    trained_model = prediction.svm_load_model('trained.model')
+    #trained_model = prediction.svm_load_model('threelabel-2.model')
     #client = prediction.connect_ibm()
     lastDecision = prediction.run_prediction(y_2, x_2, trained_model, client, lastDecision)
     sleep(0.1)
