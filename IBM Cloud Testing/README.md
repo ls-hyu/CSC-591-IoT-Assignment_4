@@ -3,7 +3,7 @@
 ## Introduction
 This is the part of the forth assignment of 591-IoT. For this assignment, we are going to use Raspberry Pi and IBM Cloud to build a webapp for detecting the open and close of the door.  
 
-## Discription
+## Description
 * Subscribe.py: Will listen to topic `Door` and print on command line.
 * Publish.py: The file will publish Open and Close to topic `Door` by turns, and which will subscribe by subscribe.py.
 
