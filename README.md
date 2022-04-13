@@ -1,6 +1,4 @@
 # CSC-591-IoT-Assignment_4
-# status_prediction_.py
-# svm_copy.py
 
 ## Description
 * status_prediction.py: The IMU(MPU-6050) connected on the rapsberry pi detects the Gx, Gy, Gz, Ax, Ay, Az and send to the model through svm_copy.py for prediction.
