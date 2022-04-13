@@ -6,10 +6,26 @@
 * status_prediction.py: The IMU(MPU-6050) connected on the rapsberry pi detects the Gx, Gy, Gz, Ax, Ay, Az and send to the model through svm_copy.py for prediction.
 * svm_copy.py: Parses the data collected, uses the model to predict and returns the predicted door status in three states, open/stable/closed.
 
+## How to collect the data for model training?
+```
+$python collect_data.py.py
+```
+
+## How to train the libsvm model?
+```
+$pip3 install libsvm-official
+$python svm.py
+```
+If you ran into error such as (ERROR: Could not build wheels for scipy which use PEP 517 and cannot be installed directly), try update pip.
+```
+$pip3 install --upgrade pip
+```
+
 ## How to run it?
-1. python status_prediction.py
-2. Opens/closes the door
-3. The prediction results(open/stable/closed) will show on the console
+1. Run `python status_prediction.py` on Raspberry Pi
+2. Set up IBM Cloud by instruction in IBM Cloud Testing  
+3. Opens/closes the door
+4. The prediction results(open/stable/closed) will show on the console
 
 
 # SVM_Classification.py
